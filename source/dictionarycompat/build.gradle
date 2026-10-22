@@ -1,0 +1,43 @@
+plugins {
+    id 'java-library'
+}
+
+version = '0.1.0-candidate.1'
+group = 'dev.apuhart'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+def questProject = providers.gradleProperty('questProject').map { file(it) }.getOrElse(file('../../../questgames-release-20261021/questgames'))
+def compilePaths = new File(questProject, 'build/moddev/clientLegacyClasspath.txt').readLines('UTF-8')
+compilePaths += new File(questProject, 'build/moddev/artifacts/neoforge-21.1.213-merged.jar').absolutePath
+
+dependencies {
+    compileOnly files(compilePaths)
+    testImplementation files(compilePaths)
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-proc:none']
+}
+
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('LICENSE')
+    from('NOTICE.txt')
+}
+
+tasks.register('abiCheck', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.apuhart.dictionarycompat.PolicyCheck'
+}
+
+tasks.named('check') {
+    dependsOn abiCheck
+}

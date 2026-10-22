@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "dev.apuhart.dictionarycompat.mixin",
+  "plugin": "dev.apuhart.dictionarycompat.CompatPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["AnimalDictionaryMixin"]
+}

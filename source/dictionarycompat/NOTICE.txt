@@ -1,0 +1,6 @@
+Animal Dictionary ABI Compatibility — Apu-Hart
+Local isolated candidate. This archive does not contain Alex's Mobs, Citadel, Minecraft, NeoForge, or their assets.
+Alex's Mobs is by its credited authors including Alexthe668, Carro1001, Paint_Ninja, and port maintainer Raguto; its port repository declares GPL-3.0.
+Citadel credits Alexthe666 and Gegy1000 and LLibrary code used with permission; its port repository declares LGPL-3.0.
+This independently written compatibility bridge calls the existing directory method; it does not replace third-party JARs or claim authorship of their code.
+The source tree and build instructions accompany this GPL-3.0-only candidate. No authorization for production deployment or online distribution is implied.

@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="GPL-3.0-only"
+[[mods]]
+modId="dictionarycompat"
+version="0.1.0-candidate.1"
+displayName="Animal Dictionary ABI Compatibility"
+authors="Apu-Hart"
+description='''Client-only directory ABI bridge for the exact reviewed Alex's Mobs binary and Citadel 2.7.6. Local candidate, not approved for production.'''
+[[mixins]]
+config="dictionarycompat.mixins.json"
+[[dependencies.dictionarycompat]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+side="BOTH"
+[[dependencies.dictionarycompat]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,21.2)"
+side="BOTH"
+[[dependencies.dictionarycompat]]
+modId="alexsmobs"
+type="required"
+versionRange="[1.22.17]"
+side="BOTH"
+[[dependencies.dictionarycompat]]
+modId="citadel"
+type="required"
+versionRange="[2.7.6]"
+side="BOTH"

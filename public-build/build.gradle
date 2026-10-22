@@ -1,0 +1,38 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.107'
+}
+version = '0.1.0-candidate.1'
+group = 'dev.apuhart'
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+}
+neoForge { version = '21.1.213' }
+sourceSets {
+    main {
+        java.srcDirs = ['../source/dictionarycompat/src/main/java']
+        resources.srcDirs = ['../source/dictionarycompat/src/main/resources']
+    }
+    test { java.srcDirs = ['../source/dictionarycompat/src/test/java'] }
+}
+dependencies {
+    compileOnly 'org.spongepowered:mixin:0.8.7'
+    testImplementation 'org.spongepowered:mixin:0.8.7'
+    testImplementation 'org.ow2.asm:asm-tree:9.8'
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-proc:none']
+}
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('../source/dictionarycompat/LICENSE')
+    from('../source/dictionarycompat/NOTICE.txt')
+}
+tasks.register('abiCheck', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.apuhart.dictionarycompat.PolicyCheck'
+}
+tasks.named('check') { dependsOn abiCheck }
