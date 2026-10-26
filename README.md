@@ -29,18 +29,6 @@ Alex’s Mobs 原作者及移植维护者包括 Alexthe668、Carro1001、Paint_N
 gradle -p public-build --no-daemon clean build
 ```
 
-首次构建需要访问公开依赖仓库。`public-build` 不依赖私有 Quest Games 工程；`source` 中原有本机缓存构建脚本仅作为历史记录保留。
-
-产物：`public-build/build/libs/dictionarycompat-0.1.0-candidate.1.jar`。
-
-已有隔离依赖缓存下实际构建与已发布二进制 SHA-256 一致：
-
-```text
-7a3b191c6567e46fc82b3d330cb01a9c8115620bc7085af8bdee177b522dae52
-```
-
-七项策略检查通过；游戏运行验证不等同于这些策略检查。代码注释检查没有发现新增普通解释性注释，不删除许可证、版权或必要署名。
-
 ## 许可证
 
 本独立补丁采用 GPL-3.0-only，完整许可见 `source/dictionarycompat/LICENSE`，第三方告知见 `source/dictionarycompat/NOTICE.txt`。
