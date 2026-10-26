@@ -4,7 +4,7 @@ Minecraft 1.21.1 / NeoForge 的动物词典 ABI 独立兼容补丁。
 
 ## 维护与署名
 
-修复与二次维护：[Apu-Hart](https://github.com/Apu-Hart)。
+修复与二次维护：[Apu-Hart](https://github.com/Apu-Hart)
 
 本补丁为 Apu-Hart 独立编写的兼容层，不是 Alex’s Mobs 或 Citadel 本体的修改版。此次“二次维护”指补丁的独立构建与发布维护，不表示原模组由 Apu-Hart 创作。
 
